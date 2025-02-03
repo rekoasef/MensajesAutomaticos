@@ -18,25 +18,27 @@ for i in range(len(data)):
     celular = str(data.loc[i, 'Celular'])  # Convertir a string
     nombre = data.loc[i, 'Nombre']
     maquina = data.loc[i, 'Maquina']
+    concesionario = data.loc[i, 'Concesionario']
     
     # Crear mensaje personalizado
-    mensaje = f"Hola, estoy probando un codigo para el envio masivo de mensajes a varias personas. Hola {nombre}! Gracias por comprar una {maquina} con nosotros 🙌"
+    mensajeConcesionario = f"Hola concesionario {concesionario}, estoy probando un codigo para el envio masivo de mensajes a varias personas, no te voy a hackear ni nada. Hola {nombre}! Gracias por comprar una Sembradora {maquina} con nosotros 🙌, ojala no se te rompa🫣"
+    mensajeUsuario = f"Hola {nombre}! Gracias por comprar una Sembradora {maquina} con nosotros 🙌, ojala no se te rompa🫣"
     
     # Abrir WhatsApp Web en Google Chrome
-    url = f"https://web.whatsapp.com/send?phone={celular}&text={mensaje}"
+    url = f"https://web.whatsapp.com/send?phone={celular}&text={mensajeConcesionario}"
     subprocess.Popen([chrome_path, url])
     
     # Esperar un tiempo aleatorio para cargar la página
     time.sleep(random.randint(10, 15))
     
     # Intentar localizar el logo de WhatsApp en la pantalla
-    try:
-        if pg.locateOnScreen('whatsapp_logo.png', confidence=0.8):  # Detectar si WhatsApp cargó
-            print(f"WhatsApp cargó correctamente para {nombre}")
-        else:
-            print(f"Error: No se pudo encontrar el logo de WhatsApp para {nombre}")
-    except pg.ImageNotFoundException:
-        print(f"Error: No se pudo localizar la imagen de WhatsApp para {nombre}")
+    # try:
+    #     if pg.locateOnScreen('whatsapp_logo.png', confidence=0.8):  # Detectar si WhatsApp cargó
+    #         print(f"WhatsApp cargó correctamente para {nombre}")
+    #     else:
+    #         print(f"Error: No se pudo encontrar el logo de WhatsApp para {nombre}")
+    # except pg.ImageNotFoundException:
+    #     print(f"Error: No se pudo localizar la imagen de WhatsApp para {nombre}")
     
     # Simular la interacción para enviar el mensaje
     pg.press('tab')  
