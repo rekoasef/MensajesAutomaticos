@@ -25,20 +25,11 @@ for i in range(len(data)):
     mensajeUsuario = f"Hola {nombre}! Gracias por comprar una Sembradora {maquina} con nosotros 🙌, ojala no se te rompa🫣"
     
     # Abrir WhatsApp Web en Google Chrome
-    url = f"https://web.whatsapp.com/send?phone={celular}&text={mensajeConcesionario}"
+    url = f"https://web.whatsapp.com/send?phone={celular}&text={mensajeUsuario}"
     subprocess.Popen([chrome_path, url])
     
     # Esperar un tiempo aleatorio para cargar la página
     time.sleep(random.randint(10, 15))
-    
-    # Intentar localizar el logo de WhatsApp en la pantalla
-    # try:
-    #     if pg.locateOnScreen('whatsapp_logo.png', confidence=0.8):  # Detectar si WhatsApp cargó
-    #         print(f"WhatsApp cargó correctamente para {nombre}")
-    #     else:
-    #         print(f"Error: No se pudo encontrar el logo de WhatsApp para {nombre}")
-    # except pg.ImageNotFoundException:
-    #     print(f"Error: No se pudo localizar la imagen de WhatsApp para {nombre}")
     
     # Simular la interacción para enviar el mensaje
     pg.press('tab')  
@@ -49,5 +40,6 @@ for i in range(len(data)):
     # Cerrar la pestaña
     pg.hotkey('ctrl', 'w')
     time.sleep(random.uniform(1.0, 2.0))
+    
 
 print("Mensajes enviados correctamente 🎉")
