@@ -392,7 +392,9 @@ for i in range(len(data)):
 
 # Cerrar la pestaña
     time.sleep(random.uniform(5.0, 6.5))
-    pg.hotkey('ctrl', 'w')
-    time.sleep(random.uniform(1.0, 2.0))
+    pg.keyDown("ctrl")
+    pg.press("w")
+    pg.keyUp("ctrl")
+    time.sleep(random.uniform(2.0, 3.0))
     
 # print("Archivos creados correctamente 🎉")
