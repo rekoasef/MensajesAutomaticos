@@ -1,5 +1,4 @@
 import pandas as pd
-import webbrowser as web
 import pyautogui as pg
 import time
 import random
@@ -22,9 +21,11 @@ for i in range(len(data)):
     
     # Crear mensaje personalizado
     mensajeConcesionario = f"Hola concesionario {concesionario}, estoy probando un codigo para el envio masivo de mensajes a varias personas, no te voy a hackear ni nada. Hola {nombre}! Gracias por comprar una Sembradora {maquina} con nosotros 🙌, ojala no se te rompa🫣"
+    
     mensajeUsuario = f"Hola {nombre}! Gracias por comprar una Sembradora {maquina} con nosotros 🙌, ojala no se te rompa🫣"
     
     # Abrir WhatsApp Web en Google Chrome
+    #Aca se podria generar una condicional para que se mande un mensaje predeterminado dependiendo la maquina que se haya comprado el usuario
     url = f"https://web.whatsapp.com/send?phone={celular}&text={mensajeUsuario}"
     subprocess.Popen([chrome_path, url])
     
